@@ -21,6 +21,10 @@ exports.Sqlparser = function() {
  */
 exports.dbhelper = function(dbname,server,port,uid,pwd) {
     if(!global.dbhelper){
-        global.dbhelper = new dbhelper(dbname,server,port,uid,pwd);
+        var db = new dbhelper(dbname,server,port,uid,pwd);
+        global.dbhelper = db;
+        return db;
+    }else{
+        return  global.dbhelper;
     }
 };
